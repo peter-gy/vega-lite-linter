@@ -1,15 +1,13 @@
+from pathlib import Path
+
 import setuptools
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
 
-install_requires = [
-    "clyngor~=0.3.31",
-    "PuLP~=2.4",
-    "pandas~=1.2.3",
-    "vega_datasets~=0.7.0"
-
-]
+install_requires = (
+    Path(__file__).parent.joinpath("requirements.txt").read_text().splitlines()
+)
 
 setuptools.setup(
     name="vega-lite-linter",
